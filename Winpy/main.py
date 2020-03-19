@@ -31,7 +31,7 @@ to_pil_image(image)
 
 
 batch_size = 70
-train_set = CaptchaDataset(characters, 1000 * batch_size, width, height, n_input_length, n_len)
+train_set = CaptchaDataset(characters, 5000 * batch_size, width, height, n_input_length, n_len)
 valid_set = CaptchaDataset(characters, 100 * batch_size, width, height, n_input_length, n_len)
 train_loader = DataLoader(train_set, batch_size=batch_size, num_workers=2)
 valid_loader = DataLoader(valid_set, batch_size=batch_size, num_workers=2)
@@ -97,5 +97,5 @@ if __name__=='__main__':
     to_pil_image(image)
 
 
-    torch.save(model, 'ctc3.pth')
+    torch.save(model, 'ctc_3_fonts_5000_180_50.pth')
     

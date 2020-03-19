@@ -97,6 +97,12 @@ class CaptchaSequence(Sequence):
             y[i] = [self.characters.find(x) for x in random_str]
         return [X, y, input_length, label_length], np.ones(self.batch_size)
 
+data = CaptchaSequence(characters, batch_size=1, steps=1)
+[X_test, y_test, _, _], _  = data[0]
+plt.imshow(X_test[0])
+plt.title(''.join([characters[x] for x in y_test[0]]))
+print(input_length, label_length)
+
 
 # 准确率回调函数
 
